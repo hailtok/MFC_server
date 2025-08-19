@@ -1,0 +1,10 @@
+﻿  MyApp.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  MyDialog.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  non_modal_CDialog.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  test_dialog.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+libcmtd.lib(exe_main.obj) : error LNK2001: 無法解析的外部符號 main
+C:\Users\AOI\source\repos\MFC_pratice\x64\Release\MFC_project.exe : fatal error LNK1120: 1 個無法解析的外部符號

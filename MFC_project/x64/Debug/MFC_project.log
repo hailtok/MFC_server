@@ -1,0 +1,35 @@
+﻿  MyApp.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Users\AOI\source\repos\MFC_CV\MFC_project\virtual_listbox.h(68,36): warning C4267: '=': 將 'size_t' 轉換為 'int'，資料可能遺失
+  (編譯來源檔案 'MyApp.cpp')
+  
+  SharedMemory.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Users\AOI\source\repos\MFC_CV\MFC_project\SharedMemory.cpp(9,56): warning C4267: '引數': 將 'size_t' 轉換為 'DWORD'，資料可能遺失
+C:\Users\AOI\source\repos\MFC_CV\MFC_project\SharedMemory.cpp(16,56): warning C4267: '引數': 將 'size_t' 轉換為 'DWORD'，資料可能遺失
+  image_process_dialog.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Users\AOI\source\repos\MFC_CV\MFC_project\virtual_listbox.h(68,36): warning C4267: '=': 將 'size_t' 轉換為 'int'，資料可能遺失
+  (編譯來源檔案 'image_process_dialog.cpp')
+  
+C:\Users\AOI\source\repos\MFC_CV\MFC_project\image_process_dialog.cpp(138,74): warning C4267: '引數': 將 'size_t' 轉換為 'int'，資料可能遺失
+C:\Users\AOI\source\repos\MFC_CV\MFC_project\image_process_dialog.cpp(166,45): warning C4267: '引數': 將 'size_t' 轉換為 'int'，資料可能遺失
+C:\Users\AOI\source\repos\MFC_CV\MFC_project\image_process_dialog.cpp(199,41): warning C4267: '引數': 將 'size_t' 轉換為 'int'，資料可能遺失
+C:\Users\AOI\source\repos\MFC_CV\MFC_project\image_process_dialog.cpp(290,27): warning C4267: '=': 將 'size_t' 轉換為 'int'，資料可能遺失
+C:\Users\AOI\source\repos\MFC_CV\MFC_project\image_process_dialog.cpp(364,66): warning C4267: '引數': 將 'size_t' 轉換為 'int'，資料可能遺失
+C:\Users\AOI\source\repos\MFC_CV\MFC_project\image_process_dialog.cpp(394,66): warning C4267: '引數': 將 'size_t' 轉換為 'int'，資料可能遺失
+C:\Users\AOI\source\repos\MFC_CV\MFC_project\SharedMemory.h(42,60): warning C4267: '引數': 將 'size_t' 轉換為 'DWORD'，資料可能遺失
+  (編譯來源檔案 'image_process_dialog.cpp')
+      C:\Users\AOI\source\repos\MFC_CV\MFC_project\SharedMemory.h(42,60):
+      範本具現化內容 (首先是最舊的) 是
+          C:\Users\AOI\source\repos\MFC_CV\MFC_project\image_process_dialog.cpp(181,49):
+          請參考正在進行編譯的函式 樣板 具現化 'HANDLE *Shared_Memory::Write_Shared_Memory<char>(const std::vector<char,std::allocator<char>> &,const size_t &)'
+  
+  ini_manager.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  setting_dialog.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  sockets.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+  正在產生程式碼...
+  MFC_project.vcxproj -> C:\Users\AOI\source\repos\MFC_CV\x64\Debug\MFC_project.exe
