@@ -1,2 +1,2 @@
 # MFC_server
-just for test MFC socket
+我將大多數的註解寫在header檔中，其中有些檔案的header並不需要在意，有些只用於練習使用
