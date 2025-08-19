@@ -5,3 +5,4 @@ dialog.h
 modal_windows.h  
 modeless_windows.h  
   
+有些註解是以前所留下，所以可能為中英混雜的情況
