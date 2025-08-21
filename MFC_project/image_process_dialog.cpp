@@ -53,56 +53,56 @@ BOOL image_process_dialog::PreTranslateMessage(MSG* pMsg) {
     return CDialogEx::PreTranslateMessage(pMsg);
 }
 DLGTEMPLATE* image_process_dialog::CreateDialogTemplate() {
-    // °t¸m°O¾ĞÅé
+    // é…ç½®è¨˜æ†¶é«”
     BYTE* pMem = new BYTE[1024];
     ZeroMemory(pMem, 1024);
 
     DLGTEMPLATE* pDlg = (DLGTEMPLATE*)pMem;
 
-    // °ò¥»¹ï¸Ü®Ø¼Ë¦¡
+    // åŸºæœ¬å°è©±æ¡†æ¨£å¼
     pDlg->style = DS_SETFONT | DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME;
     pDlg->cx = 600;
     pDlg->cy = 360;
 
     BYTE* p = (BYTE*)(pDlg + 1);
 
-    // µL menu
+    // ç„¡ menu
     *(WORD*)p = 0; p += sizeof(WORD);
 
-    // ¨Ï¥Î¹w³] dialog class
+    // ä½¿ç”¨é è¨­ dialog class
     *(WORD*)p = 0; p += sizeof(WORD);
 
-    // Caption ¦r¦ê
+    // Caption å­—ä¸²
     wcscpy_s((WCHAR*)p, 32, L"IMAGE PROCESSING WINDOW");
     p += (wcslen(L"IMAGE PROCESSING WINDOW") + 1) * sizeof(WCHAR);
 
-    // Font ³]©w
-    *(WORD*)p = 10;  p += sizeof(WORD); // ¦rÅé¤j¤p
+    // Font è¨­å®š
+    *(WORD*)p = 10;  p += sizeof(WORD); // å­—é«”å¤§å°
     wcscpy_s((WCHAR*)p, 32, L"Microsoft YaHei UI");
 
     return pDlg;
 }
 void image_process_dialog::LoadDigMenu() {
-    HMENU hMenuBar = CreateMenu();           // ¥D¿ï³æ¦C
-    HMENU hFileMenu = CreatePopupMenu();     // ÀÉ®× ¤l¿ï³æ
-    HMENU hLanguageMenu = CreatePopupMenu(); // »y¨¥ ¤l¿ï³æ
+    HMENU hMenuBar = CreateMenu();           // ä¸»é¸å–®åˆ—
+    HMENU hFileMenu = CreatePopupMenu();     // æª”æ¡ˆ å­é¸å–®
+    HMENU hLanguageMenu = CreatePopupMenu(); // èªè¨€ å­é¸å–®
 
-    // ¥[¤J ÀÉ®×(F)
-    AppendMenu(hFileMenu, MF_STRING, MENU_FILE_SAVE, _T("Àx¦s(&S)\tCtrl+S"));
-    AppendMenu(hFileMenu, MF_STRING, MENU_FILE_OPEN, _T("¶}±Ò(&O)\tCtrl+O"));
+    // åŠ å…¥ æª”æ¡ˆ(F)
+    AppendMenu(hFileMenu, MF_STRING, MENU_FILE_SAVE, _T("å„²å­˜(&S)\tCtrl+S"));
+    AppendMenu(hFileMenu, MF_STRING, MENU_FILE_OPEN, _T("é–‹å•Ÿ(&O)\tCtrl+O"));
 
-    // ¥[¤J »y¨¥(L)
-    AppendMenu(hLanguageMenu, MF_STRING, MENU_LANGUAGE_TRADITIONAL_CHINESE, _T("ÁcÅé¤¤¤å(&Z)"));
-    AppendMenu(hLanguageMenu, MF_STRING, MENU_LANGUAGE_SIMPLIFIED_CHINESE, _T("Â²Åé¤¤¤å(&X)"));
-    AppendMenu(hLanguageMenu, MF_STRING, MENU_LANGUAGE_ENGLISH, _T("­^¤å(&C)"));
-    AppendMenu(hLanguageMenu, MF_STRING, MENU_LANGUAGE_JAPANESE, _T("¤é¤å(&V)"));
-    AppendMenu(hLanguageMenu, MF_STRING, MENU_LANGUAGE_KOREAN, _T("Áú¤å(&B)"));
+    // åŠ å…¥ èªè¨€(L)
+    AppendMenu(hLanguageMenu, MF_STRING, MENU_LANGUAGE_TRADITIONAL_CHINESE, _T("ç¹é«”ä¸­æ–‡(&Z)"));
+    AppendMenu(hLanguageMenu, MF_STRING, MENU_LANGUAGE_SIMPLIFIED_CHINESE, _T("ç°¡é«”ä¸­æ–‡(&X)"));
+    AppendMenu(hLanguageMenu, MF_STRING, MENU_LANGUAGE_ENGLISH, _T("è‹±æ–‡(&C)"));
+    AppendMenu(hLanguageMenu, MF_STRING, MENU_LANGUAGE_JAPANESE, _T("æ—¥æ–‡(&V)"));
+    AppendMenu(hLanguageMenu, MF_STRING, MENU_LANGUAGE_KOREAN, _T("éŸ“æ–‡(&B)"));
 
-    // ¥[¤J POPUP ¨ì MenuBar
-    AppendMenu(hMenuBar, MF_POPUP, (UINT_PTR)hFileMenu, _T("ÀÉ®×(&F)"));
-    AppendMenu(hMenuBar, MF_POPUP, (UINT_PTR)hLanguageMenu, _T("»y¨¥(&L)"));
+    // åŠ å…¥ POPUP åˆ° MenuBar
+    AppendMenu(hMenuBar, MF_POPUP, (UINT_PTR)hFileMenu, _T("æª”æ¡ˆ(&F)"));
+    AppendMenu(hMenuBar, MF_POPUP, (UINT_PTR)hLanguageMenu, _T("èªè¨€(&L)"));
 
-    // ³]©wµøµ¡ªº Menu
+    // è¨­å®šè¦–çª—çš„ Menu
     ::SetMenu(m_hWnd, hMenuBar);
 }
 void image_process_dialog::LoadDigAccelerators() {
@@ -117,17 +117,17 @@ BOOL image_process_dialog::OnInitDialog() {
     LoadDigMenu();
     LoadDigAccelerators();
     //setting UI in dialog
-    combobox_static->Create(_T("ºtºâªk"), WS_CHILD | WS_VISIBLE, CRect(10, 0, 60, 15), this);
+    combobox_static->Create(_T("æ¼”ç®—æ³•"), WS_CHILD | WS_VISIBLE, CRect(10, 0, 60, 15), this);
     image_process_combo->Create(WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST, CRect(10, 25, 250, 60), this, ID_COMBOBOX);
     image_process_combo->AddString(_T("Algorithm 1"));
     image_process_combo->AddString(_T("Algorithm 2"));
     image_process_combo->AddString(_T("Algorithm 3"));
     image_process_combo->AddString(_T("Algorithm 4"));
 
-	bmp_text_static->Create(_T("¹Ï¹³"), WS_CHILD | WS_VISIBLE , CRect(300, 0, 360, 15), this);
+	bmp_text_static->Create(_T("åœ–åƒ"), WS_CHILD | WS_VISIBLE , CRect(300, 0, 360, 15), this);
     bmp_static->Create(NULL, WS_CHILD | WS_VISIBLE | SS_BITMAP, CRect(300, 20, 1100, 660), this);
 
-    file_name_static->Create(_T("ÀÉ®×¦WºÙ"), WS_CHILD | WS_VISIBLE, CRect(10, 65, 70, 80), this);
+    file_name_static->Create(_T("æª”æ¡ˆåç¨±"), WS_CHILD | WS_VISIBLE, CRect(10, 65, 70, 80), this);
     
     listbox->Create(WS_CHILD | WS_VISIBLE |LBS_NOTIFY,
         CRect(10, 85, 250, 350), this, ID_LISTBOX, ID_SCROLLBAR);
@@ -137,12 +137,13 @@ BOOL image_process_dialog::OnInitDialog() {
     int itemHeight = listbox->GetItemHeight(0);
     listbox->SetParameter(listbox_rc.Height() / itemHeight, 0, files.size());
 
-    feature_point_static->Create(_T("¯S¼xÂI"), WS_CHILD | WS_VISIBLE, CRect(10,360, 250,375 ), this);
+    feature_point_static->Create(_T("ç‰¹å¾µé»"), WS_CHILD | WS_VISIBLE, CRect(10,360, 250,375 ), this);
     listctrl->Create(WS_CHILD | WS_VISIBLE | WS_VSCROLL | LVS_REPORT | LVS_SINGLESEL | LVS_OWNERDATA,
         CRect(10, 390, 250, 780), this, ID_LISTCTRL);
     listctrl->SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_GRIDLINES);
     listctrl->InsertColumn(0, _T("X"), LVCFMT_LEFT, 100);
     listctrl->InsertColumn(1, _T("Y"), LVCFMT_LEFT, 100);
+	AfxSocketInit();
     Server_Socket->m_pClientSocket->SetOnReceive([this]() {
         ::PostMessage(Server_Socket->m_pClientSocket->GetParent()->GetSafeHwnd(), WM_SOCKET_NOTIFY, (WPARAM)Server_Socket->m_pClientSocket->GetFileSize(), 0);
         });
@@ -151,8 +152,8 @@ BOOL image_process_dialog::OnInitDialog() {
 
     shared_memory->Create();
 
-	change_font1->Create(_T("§ó§ï¦r«¬1"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, CRect(10, 800, 100, 830), this, BT_FONT1);
-	change_font2->Create(_T("§ó§ï¦r«¬2"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, CRect(120, 800, 220, 830), this, BT_FONT2);
+	change_font1->Create(_T("æ›´æ”¹å­—å‹1"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, CRect(10, 800, 100, 830), this, BT_FONT1);
+	change_font2->Create(_T("æ›´æ”¹å­—å‹2"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, CRect(120, 800, 220, 830), this, BT_FONT2);
     return TRUE;
 }
 void image_process_dialog::OnChooseFile() {
@@ -161,26 +162,26 @@ void image_process_dialog::OnChooseFile() {
         receive = false;
         int sel = listbox->GetCurSel();
         imgBuffer = ReadImageFile(_T("./") + files[sel]);
-        // ¤ÀªR¯S¼xÂI
+        // åˆ†æç‰¹å¾µé»
         features = DetectFeaturesFromBitmap(LoadBitmapFromMemory(imgBuffer));
         listctrl->SetItemCount(features.size());
         AfxBeginThread([](LPVOID pParam) -> UINT {
             image_process_dialog* dlg = (image_process_dialog*)pParam;
             Sleep(3000);
-            // °õ¦æºü¤º³¡°µ¯Ó®É³B²z
+            // åŸ·è¡Œç·’å…§éƒ¨åšè€—æ™‚è™•ç†
             std::vector<char> buffer = ReadImageFile(_T("./") + dlg->files[dlg->listbox->GetCurSel()]);
 
-            // ²£¥Í feature
+            // ç”¢ç”Ÿ feature
             HBITMAP hBmp = LoadBitmapFromMemory(buffer);
             std::vector<std::pair<int, int>> detectedFeatures = DetectFeaturesFromBitmap(hBmp);
 
-            // ¦@¨É°O¾ĞÅé¼g¤J
+            // å…±äº«è¨˜æ†¶é«”å¯«å…¥
             if (dlg->shared_file) {
                 CloseHandle(dlg->shared_file);
             }
             HANDLE handle = dlg->shared_memory->Write_Shared_Memory(buffer, buffer.size());
 
-            // µo°e¸ê®Æªø«×µ¹ Client
+            // ç™¼é€è³‡æ–™é•·åº¦çµ¦ Client
             size_t size = buffer.size();
             dlg->Server_Socket->m_pClientSocket->Send(&size, sizeof(size_t));
             return 0;
@@ -194,7 +195,7 @@ void image_process_dialog::OnChooseFile() {
     int sel = listbox->GetCurSel();
     imgBuffer=ReadImageFile(_T("./") + files[sel]);
     DrawImageBuffer(bmp_static, imgBuffer);
-    // ¤ÀªR¯S¼xÂI
+    // åˆ†æç‰¹å¾µé»
     features = DetectFeaturesFromBitmap(LoadBitmapFromMemory(imgBuffer));
     listctrl->SetItemCount(features.size());
     if (shared_file) {
@@ -323,7 +324,7 @@ image_process_dialog::~image_process_dialog() {
 }
 /*
 void image_process_dialog::send_WM_COPYDATA() {
-    HWND hReceiverWnd = ::FindWindow(NULL, _T("ReceiverWindowTitle")); // ¥Ø¼Ğµøµ¡¼ĞÃD
+    HWND hReceiverWnd = ::FindWindow(NULL, _T("ReceiverWindowTitle")); // ç›®æ¨™è¦–çª—æ¨™é¡Œ
 
     if (hReceiverWnd)
     {
@@ -338,62 +339,62 @@ void image_process_dialog::send_WM_COPYDATA() {
 }
 */
 void image_process_dialog::OnBnClickedButtonFont1() {
-    // ¥ı§R±¼ÂÂ¦r«¬¡]¦pªG¦³¡^
+    // å…ˆåˆªæ‰èˆŠå­—å‹ï¼ˆå¦‚æœæœ‰ï¼‰
     m_customFont.DeleteObject();
 
-    // ³]©w·s¦r«¬
+    // è¨­å®šæ–°å­—å‹
     m_customFont.CreateFont(
-        20,                // °ª«×¡]¹³¯À¡^
-        0, 0, 0,           // ¼e«×/¶É±×/¨¤«×
-        FW_BOLD,           // ²ÊÅé
-        FALSE, FALSE, FALSE,   // «D±×Åé¡B«D©³½u¡B«D§R°£½u
+        20,                // é«˜åº¦ï¼ˆåƒç´ ï¼‰
+        0, 0, 0,           // å¯¬åº¦/å‚¾æ–œ/è§’åº¦
+        FW_BOLD,           // ç²—é«”
+        FALSE, FALSE, FALSE,   // éæ–œé«”ã€éåº•ç·šã€éåˆªé™¤ç·š
         ANSI_CHARSET,
         OUT_DEFAULT_PRECIS,
         CLIP_DEFAULT_PRECIS,
         DEFAULT_QUALITY,
         DEFAULT_PITCH | FF_DONTCARE,
-        _T("Microsoft JhengHei")   // ¦r«¬¦WºÙ
+        _T("Microsoft JhengHei")   // å­—å‹åç¨±
     );
 
-    // ®M¥Î¨ì ListBox
+    // å¥—ç”¨åˆ° ListBox
     listbox->SetFont(&m_customFont);
-	// §ó·s ListBox ªº°Ñ¼Æ
+	// æ›´æ–° ListBox çš„åƒæ•¸
     CRect rc;
     listbox->GetClientRect(&rc);
     int itemHeight = listbox->GetItemHeight(0);
     listbox->SetParameter(rc.Height() / itemHeight, 0, files.size());
     listbox->UpdateListBoxItems(files);
-    // ¥i¿ï¡G±j¨î­«Ã¸
+    // å¯é¸ï¼šå¼·åˆ¶é‡ç¹ª
     listbox->MoveWindow(listbox_rc);
     listbox->Invalidate();
 }
 void image_process_dialog::OnBnClickedButtonFont2() {
-    // ¥ı§R±¼ÂÂ¦r«¬¡]¦pªG¦³¡^
+    // å…ˆåˆªæ‰èˆŠå­—å‹ï¼ˆå¦‚æœæœ‰ï¼‰
     m_customFont.DeleteObject();
 
-    // ³]©w·s¦r«¬
+    // è¨­å®šæ–°å­—å‹
     m_customFont.CreateFont(
-        30,                // °ª«×¡]¹³¯À¡^
-        0, 0, 0,           // ¼e«×/¶É±×/¨¤«×
-        FW_BOLD,           // ²ÊÅé
-        FALSE, FALSE, FALSE,   // «D±×Åé¡B«D©³½u¡B«D§R°£½u
+        30,                // é«˜åº¦ï¼ˆåƒç´ ï¼‰
+        0, 0, 0,           // å¯¬åº¦/å‚¾æ–œ/è§’åº¦
+        FW_BOLD,           // ç²—é«”
+        FALSE, FALSE, FALSE,   // éæ–œé«”ã€éåº•ç·šã€éåˆªé™¤ç·š
         ANSI_CHARSET,
         OUT_DEFAULT_PRECIS,
         CLIP_DEFAULT_PRECIS,
         DEFAULT_QUALITY,
         DEFAULT_PITCH | FF_DONTCARE,
-        _T("Microsoft JhengHei")   // ¦r«¬¦WºÙ
+        _T("Microsoft JhengHei")   // å­—å‹åç¨±
     );
 
-    // ®M¥Î¨ì ListBox
+    // å¥—ç”¨åˆ° ListBox
     listbox->SetFont(&m_customFont);
-	// §ó·s ListBox ªº°Ñ¼Æ
+	// æ›´æ–° ListBox çš„åƒæ•¸
     CRect rc;
     listbox->GetClientRect(&rc);
     int itemHeight = listbox->GetItemHeight(0);
     listbox->SetParameter(rc.Height() / itemHeight, 0, files.size());
     listbox->UpdateListBoxItems(files);
     listbox->MoveWindow(listbox_rc);
-    // ¥i¿ï¡G±j¨î­«Ã¸
+    // å¯é¸ï¼šå¼·åˆ¶é‡ç¹ª
     listbox->Invalidate();
 }
